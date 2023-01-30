@@ -51,7 +51,7 @@
 .fix_motion .sticky_cont .cont_box .intro_txt.active {opacity: 0;}
 .fix_motion .sticky_cont .cont_box .left_mask {position: absolute; left:0; top:0; z-index:50; width:50%; height: 100%; background: #000; }
 .fix_motion .sticky_cont .cont_box .right_mask {position: absolute; right:0; top:0; z-index:50; width:50%; height: 100%; background: #000; }
-.fix_motion .sticky_cont .cont_box .bg_img {position:absolute; left:0; top:0; z-index:20; width: 100%; height: 100%; background-image: url('../images/steve_jobs.jpg'); background-size: auto 100%; background-repeat: no-repeat; background-position: center center;}
+.fix_motion .sticky_cont .cont_box .selfContent {position:absolute; left:0; top:0; z-index:20; width: 100%; height: 100%; background-image: url('../images/steve_jobs.jpg'); background-size: auto 100%; background-repeat: no-repeat; background-position: center center;}
 .fix_motion .sticky_cont .cont_box .ending_txt {position: absolute; left:0; top:0; z-index:30; width: 100%; height: 100%; opacity:0; transition:opacity 1s;}
 .fix_motion .sticky_cont .cont_box .ending_txt:after {position: absolute; left:0; top:0; z-index:-1; width: 100%; height: 100%; background: rgba(255,255,255,1); content:"";}
 .fix_motion .sticky_cont .cont_box .ending_txt.active {opacity: 1;}
@@ -80,7 +80,7 @@
 					</div>
 					<div class="left_mask"></div>
 					<div class="right_mask"></div>
-					<!-- <figure class="bg_img"></figure> -->
+					<figure class="selfContent">안녕</figure>
 					<div class="ending_txt">
 						<div class="tb_row">
 							<div class="tb_cell">
@@ -107,19 +107,14 @@
 					<span>Younghoon</span>
 				</a>
 			</li>
-			<li>
-				<a href="#b">
-					<i class="fa"></i>
-					<span>Younghoon</span>
-				</a>
-			</li>
+			
 			<li>
 				<a href="#c">
 					<i class="fa"></i>
 					<span>Potfolio</span>
 				</a>
 			</li>
-			<li>
+			<!-- <li>
 				<a href="#d">
 					<i class="fa"></i>
 					<span>Ending</span>
@@ -148,7 +143,7 @@
 					<i class="fa"></i>
 					<span>SPACE</span>
 				</a>
-			</li>
+			</li> -->
 		</ul>
 	</div>
 <script>
@@ -164,7 +159,7 @@
 	var titText = scrollBody.find('.intro_txt');
 	var maskLeft = scrollBody.find('.left_mask');
 	var maskRight = scrollBody.find('.right_mask');
-	var bgImage = scrollBody.find('.bg_img');
+	var selfContent = scrollBody.find('.selfContent');
 	var endingContent = scrollBody.find('.ending_txt');
 	var section = $('.section');
 	var offsetTop = [];
@@ -189,6 +184,7 @@
 	};
 
 	function checkInSection() {
+		setValue();
 		motionRender();
 		if(winScrollTop >= offsetTop[0] && offsetBottom[0] > winScrollTop) {
 			sectionActive(0);
@@ -228,7 +224,7 @@
 			width: maskVal + '%'
 		});
 
-		bgImage
+		selfContent
 		.css({
 			'transform': 'scale('+ scaleVal +')'
 		});
