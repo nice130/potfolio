@@ -15,11 +15,10 @@
 .com_tit01 {font-family: 'NotoB'; font-size:120px; color:#fff; text-align: center;}
 .com_txt01 {max-width:70%; margin:0 auto; font-family: 'NotoR'; font-size:32px; color:#fff; text-align: center;;}
 
-/* main */
 
 /* 헤더 */
 .header_wrap {position: fixed; left:0; top:0; z-index:100; width:100%; height:70px; border-bottom:1px solid rgba(255,255,255,.2); transition: background .5s;}
-.header_wrap .logo {margin-top:15px; padding-left:20px; font-size:24px; color:#fff;;}
+.header_wrap .logo {margin-top:15px; padding-left:20px; font-size:24px; color:#fff;}
 .header_wrap.active {background: rgba(255,255,255,.5)}
 .header_wrap.active .logo {color:#222; transition: color .5s;}
 
@@ -27,10 +26,9 @@
 .fix_tit {text-align: center; position: fixed; left:50%; top:50%; font-family: 'NotoB'; font-size:40px; line-height: 1; color:#fff; transform:translate(-50%, -50%); -webkit-transform:translate(-50%, -50%); -moz-transform:translate(-50%, -50%); -o-transform:translate(-50%, -50%); -ms-transform:translate(-50%, -50%); opacity: .6;}
 .fix_tit.hide {opacity:0;}
 
-
 /* 섹션, 네비게이션 */
-.section {overflow: hidden; height: 1440px; background-size:cover;}
-.section.fixed {background-attachment: fixed;}
+.section.fixed {overflow: hidden; height: 1440px; background-size:cover; background-attachment: fixed;}
+.section.fixed.pot{overflow: hidden; height: 100vh; padding-top:90px; background-size: cover; background-repeat: no-repeat;}
 .content{position:relative;left:50%; top:50%; font-family: 'NotoB';}
 
 .nav_list {position:fixed; right:50px; top:50%; z-index:1000; transform:translateY(-50%); -webkit-transform:translateY(-50%); -moz-transform:translateY(-50%); -ms-transform:translateY(-50%);}
@@ -59,42 +57,8 @@
 .fix_motion .sticky_cont .cont_box .ending_txt .tb_row .tb_cell p {font-size: 80px; color:#000; line-height: 1;}
 
 /* 포트폴리오 영역 */
-.pot_motion {background:#080808;}
-.pot_motion .fix_wrap {position:relative;}
-.pot_motion .fix_wrap:after {clear:both; display:block; content:'';}
-.pot_motion .fix_wrap .tit {position:relative; z-index:50; margin-bottom:170px; font-size:200px; color:#333; text-align: center;}
-.pot_motion .fix_wrap .text_box {float:left; width:30%; padding-top:300px;}
-.pot_motion .fix_wrap .text_box p {max-width:80%; font-size:36px; font-family: 'NotoM'; color:#333; transition:color .5s;}
-.pot_motion .fix_wrap .text_box p.active {color:#fff;}
-.pot_motion .fix_wrap .text_box p.txt02 {margin-top:300px;}
-.pot_motion .fix_wrap .text_box p.txt03 {margin-top:300px;}
-.pot_motion .fix_wrap .text_box p.txt04 {margin-top:300px; margin-bottom:500px;}
 
-.pot_motion .fix_wrap .device_fix {position: sticky; position: -webkit-sticky; top:calc(50vh - 204px); left: 0; z-index: 40; float:left; width:50%;}
-.pot_motion .fix_wrap .device_fix .watch_img {position:relative; width: 240px; height:409px; margin:0 auto; }
-.pot_motion .fix_wrap .device_fix .watch_img .slide_wrap {overflow:hidden; position: absolute; left:15px; top:89px; z-index:10; width:195px; height:237px;}
-.pot_motion .fix_wrap .device_fix .watch_img .slide_wrap .slide {width: 780px; height: 100%; transition:transform .5s;}
-.pot_motion .fix_wrap .device_fix .watch_img .slide_wrap .slide figure {float:left; width:195px;}
 
-@media only screen and (max-width: 1024px) {
-.ggang_box h2 {font-size:32px;}
-
-.pot_motion .fix_wrap {height: 3000px;} /* 모바일 버전에서 스크롤 거리를 설정함 */
-
-.pot_motion .fix_wrap .tit {font-size:54px; margin:auto;}
-.pot_motion .fix_wrap .text_box {float:none; position: sticky; position: -webkit-sticky; left:0; top:0; z-index:50; width: 100%; padding-top:100px;}
-.pot_motion .fix_wrap .text_box p {position:absolute; left:0; top:100px; width: 100%; max-width:100%; padding:0 20px; font-size:18px; text-align: center; box-sizing: border-box; opacity: 0; transition:opacity .5s;}
-.pot_motion .fix_wrap .text_box p.active {opacity: 1;}
-.pot_motion .fix_wrap .text_box p.txt02 {margin-top:0px;}
-.pot_motion .fix_wrap .text_box p.txt03 {margin-top:0px;}
-.pot_motion .fix_wrap .text_box p.txt04 {margin-top:0px; margin-bottom:0px;}
-
-.pot_motion .fix_wrap .device_fix {top: calc(100vh - 360px); width: 100%;}
-.pot_motion .fix_wrap .device_fix .watch_img {width: 160px; height: 272px;}
-.pot_motion .fix_wrap .device_fix .watch_img .slide_wrap {top: 66px; width: 120px; height: 146px;}
-.pot_motion .fix_wrap .device_fix .watch_img .slide_wrap .slide {width: 480px;}
-.pot_motion .fix_wrap .device_fix .watch_img .slide_wrap .slide figure {width:120px;}
-}
 </style>
 <body>
 	<div class="wrap">
@@ -102,90 +66,59 @@
 			<div class="logo">Younghoon</div>
 		</header>
 		<section id="a" class="section fixed" style="background-image: url('../images/img_blur01.jpg')">
-			<h2 class="fix_tit"> <!-- 타이틀 -->
+			<h2 class="fix_tit"> 
 				<div style="margin-bottom: 10px;">안녕하세요</div>
 				<div style="margin-bottom: 10px;">계속 나아가는 개발자</div>
 				<div style="margin-bottom: 10px;">유영훈의</div>
 				<div>포트폴리오 입니다:)</div>
 			</h2>
 		</section>
-		<section id="b" class="fix_motion"> <!-- 스크롤할 거리를 설정하는 엘리먼트 -->
-			<article class="sticky_cont"> <!-- 고정시킬 엘리먼트 sticky -->
-				<div class="cont_box ">
-					<div class="intro_txt">
-						<h2>
-							<div>
-								소통을 잘하는<br>
-								밝은 에너지를 가진<br>
-								꾸준히 공부하는
-							</div>
-						</h2>
-					</div>
-					<div class="left_mask"></div>
-					<div class="right_mask"></div>
-					<figure class="bg_img"></figure>
-					<div class="ending_txt">
-						<div class="tb_row">
-							<div class="tb_cell">
-								<p>
-									이런 개발자 입니다🕶
-								</p>
+		<section id="b" class="section">
+			<section class="fix_motion"> 
+				<article class="sticky_cont"> 
+					<div class="cont_box ">
+						<div class="intro_txt">
+							<h2>
+								<div style="margin-bottom: 10px;">
+									소통을 잘하는
+								</div>
+								<div style="margin-bottom: 10px;">
+									밝은 에너지를 가진
+								</div>
+								<div style="margin-bottom: 10px;">
+									꾸준히 공부하는
+								</div>
+							</h2>
+						</div>
+						<div class="left_mask"></div>
+						<div class="right_mask"></div>
+						<figure class="bg_img"></figure>
+						<div class="ending_txt">
+							<div class="tb_row">
+								<div class="tb_cell">
+									<p>
+										노력하는 개발자 입니다🕶
+									</p>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-			</article>
+				</article>
+			</section>
 		</section>
-		<section id="c" class="pot_motion">
-			<article class="fix_wrap inner">
-				<h2 class="tit">Potfolio</h2>
-				<div class="text_box">
-					<p class="txt01">
-						여러분 드디어 수업이 막바지에 이르렀습니다:)
-					</p>
-					<p class="txt02">
-						2편에서는 더 고급스럽고
-						난이도 있는 인터렉션을 만들 예정입니다
-					</p>
-					<p class="txt03">
-						1편에서 기초를 탄탄하게
-						다져야 2편이 수월해집니다
-					</p>
-					<p class="txt04">
-						이 수업이 여러분에게
-						많은 도움이 되었다면 좋겠습니다
-					</p>
-				</div>
-				<div class="device_fix">
-					<div class="watch_img">
-						<figure class="img_device">
-							<img src="../images/bg_device.png" alt="">
-						</figure>
-						<div class="slide_wrap">
-							<div class="slide">
-								<figure>
-									<img src="../images/1.jpg">
-								</figure>
-								<figure>
-									<img src="../images/2.jpg">
-								</figure>
-								<figure>
-									<img src="../images/3.jpg">
-								</figure>
-								<figure>
-									<img src="../images/4.jpg">
-								</figure>
-							</div>
-						</div>
-					</div>
-				</div>
-			</article>
+		<section id="c" class="section fixed pot" style="background-image: url('../images/img_blur01.jpg')"></section>
+			<h2 class="com_tit01">
+				IN LIST :)
+			</h2>
+			<p class="com_txt01">
+				해당요소가 엑티브 되면서 등장하는 리스트 이미지
+			</p>
 		</section>
-		<section id="d" class="section fixed" style="background-image: url('../images/4.jpg')"></section>
+		<!-- <section id="d" class="section fixed" style="background-image: url('../images/4.jpg')"></section>
 		<section id="e" class="section" style="background-image: url('../images/5.jpg')"></section>
 		<section id="f" class="section" style="background-image: url('../images/6.jpg')"></section>
 		<section id="g" class="section" style="background-image: url('../images/7.jpg')"></section>
-		<section id="h" class="section" style="background-image: url('../images/8.jpg')"></section>
+		<section id="h" class="section" style="background-image: url('../images/8.jpg')"></section> -->
 		
 		<ul class="nav_list"> <!-- 네비게이션 -->
 			<li>
@@ -207,31 +140,31 @@
 					<span>Potfolio</span>
 				</a>
 			</li>
-			<!-- 
+			 
 			<li>
 				<a href="#e">
 					<i class="fa"></i>
-					<span>BLUE SKY</span>
+					<span>1</span>
 				</a>
 			</li>
 			<li>
 				<a href="#f">
 					<i class="fa"></i>
-					<span>LONELY</span>
+					<span>2</span>
 				</a>
 			</li>
 			<li>
 				<a href="#g">
 					<i class="fa"></i>
-					<span>ELEGANCE</span>
+					<span>3</span>
 				</a>
 			</li>
 			<li>
 				<a href="#h">
 					<i class="fa"></i>
-					<span>SPACE</span>
+					<span>Ending</span>
 				</a>
-			</li> -->
+			</li>
 		</ul>
 	</div>
 <script>
@@ -259,8 +192,8 @@
 		section.each(function(index,obj) {
 			offsetTop[index] = $(obj).offset().top;
 			offsetBottom[index] = offsetTop[index] + $(obj).height();
-			console.log("offsetTop["+index+"] => "+$(obj).offset().top)
 		});
+		
 		scrollHeight = scrollBody.height();
 		sectionOffsetTop = scrollBody.offset().top;
 		scrollRealHeight = (scrollHeight - $(window).height());
@@ -333,9 +266,18 @@
 			endingContent.removeClass('active');
 		}
 	};
+	
+	function changeText(index) {
+
+		var targetText = $('.logo');
+		var list = $('.nav_list li a span');
+		var getText = list.eq(index).text()
+		targetText.text(getText);
+	};
 
 	function sectionActive(index) {
 		listActive(index);
+		changeText(index);
 	};
 
 	function listActive(index) {
@@ -353,7 +295,6 @@
 
 	$(window).scroll(function() {
 		winScrollTop = $(window).scrollTop();
-		console.log(winScrollTop);
 		checkInSection();
 	});
 
