@@ -58,7 +58,27 @@
 
 /* 포트폴리오 영역 */
 
+.section.sec_list_overlap {overflow: hidden; height: 1000px; padding-top:90px; background-image: url('../images/img_blur01.jpg'); background-size: cover; background-repeat: no-repeat;}
+.section.sec_list_overlap .list_overlap .com_tit01 {color:#fff;}
+.section.sec_list_overlap .list_overlap .com_txt01 {color:#fff;}
 
+.section.sec_list_overlap .list_overlap .list {position:relative; margin-top:50px;}
+.section.sec_list_overlap .list_overlap .list:after {clear:both; display:block; content:'';}
+.section.sec_list_overlap .list_overlap .list li {position:relative; float:left; width:50%; box-sizing: border-box;}
+.section.sec_list_overlap .list_overlap .list li .img_box {opacity: 0; transform:translateY(20px); -webkit-transform:translateY(20px); -moz-transform:translateY(20px); -o-transform:translateY(20px); -ms-transform:translateY(20px); transition:opacity .5s, transform .5s;}
+
+.section.sec_list_overlap.active .list_overlap .list li .img_box {opacity: 1; transform:translateY(0px); -webkit-transform:translateY(0px); -moz-transform:translateY(0px); -o-transform:translateY(0px); -ms-transform:translateY(0px);}
+.section.sec_list_overlap.active .list_overlap .list li:first-child .img_box {transition-delay: .3s;}
+.section.sec_list_overlap.active .list_overlap .list li:first-child .img_box.last {transition-delay: .6s;}
+.section.sec_list_overlap.active .list_overlap .list li:last-child .img_box{transition-delay: .8s;}
+
+.section.sec_list_overlap .list_overlap .list li .img_box {overflow:hidden; }
+.section.sec_list_overlap .list_overlap .list li .img_box img {transition: transform .5s ease;}
+.section.sec_list_overlap .list_overlap .list li .img_box:hover img {transform:scale(1.2) rotate(-0.01deg); -webkit-transform:scale(1.2) rotate(-0.01deg); -moz-transform:scale(1.2) rotate(-0.01deg); -o-transform:scale(1.2) rotate(-0.01deg); -ms-transform:scale(1.2) rotate(-0.01deg);}
+
+.section.sec_list_overlap .list_overlap .list li:first-child  {left:-10px; top:20px;}
+.section.sec_list_overlap .list_overlap .list li:first-child .img_box.last { margin-top:20px; }
+.section.sec_list_overlap .list_overlap .list li:last-child {left:10px;}
 </style>
 <body>
 	<div class="wrap">
@@ -106,13 +126,30 @@
 				</article>
 			</section>
 		</section>
-		<section id="c" class="section fixed pot" style="background-image: url('../images/img_blur01.jpg')"></section>
-			<h2 class="com_tit01">
-				IN LIST :)
-			</h2>
-			<p class="com_txt01">
-				해당요소가 엑티브 되면서 등장하는 리스트 이미지
-			</p>
+		<section id="c" class="section sec_list_overlap">
+			<article class="list_overlap inner">
+				<h2 class="com_tit01">
+					Potfolio List
+				</h2>
+				<p class="com_txt01">
+					(click element)
+				</p>
+				<ul class="list">
+					<li>
+						<figure class="img_box">
+							<img src="../images/img_list02.jpg">
+						</figure>
+						<figure class="img_box last">
+							<img src="../images/img_list03.jpg">
+						</figure>
+					</li>
+					<li>
+						<figure class="img_box">
+							<img src="../images/img_list01.jpg">
+						</figure>
+					</li>
+				</ul>
+			</article>
 		</section>
 		<!-- <section id="d" class="section fixed" style="background-image: url('../images/4.jpg')"></section>
 		<section id="e" class="section" style="background-image: url('../images/5.jpg')"></section>
