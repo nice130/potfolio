@@ -291,6 +291,34 @@
 		sectionOverlap.addClass('active');
 	};
 
+	function moveStartRender() { //섹션 이동 처리 함수
+
+			if(!header.hasClass('active')) {
+
+				header.addClass('active');
+				sectionMainVisual.addClass('active');
+				sectionOverlap.addClass('active');
+
+				$('html').stop(true).animate({
+					scrollTop: sectionMainBottom+1 //IE버그 반복 버그 처리를 위해 1을 추가.
+				},500,function(){
+					sectionIsMoving = false; //섹션이 이동 중인지 체크하는 변수
+				});
+
+			} else {
+				header.removeClass('active');
+				sectionMainVisual.removeClass('active');
+				sectionOverlap.removeClass('active');
+
+				$('html').stop(true).animate({
+					scrollTop: sectionMainTop
+				},500,function(){
+					sectionIsMoving = false; //섹션이 이동 중인지 체크하는 변수
+				});
+			}
+
+	};
+
 	function motionRender() {
 		var targetText = $('.fix_tit');
 		var maskStartValue = 50;
@@ -361,7 +389,7 @@
 
 	$(window).scroll(function() {
 		winScrollTop = $(window).scrollTop();
-		motionRender();
+		checkInSection();
 	});
 
 	$(window).resize(function() {
