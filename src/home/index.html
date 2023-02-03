@@ -85,7 +85,7 @@
 		<header class="header_wrap">
 			<div class="logo">Younghoon</div>
 		</header>
-		<section id="a" class="section fixed" style="background-image: url('../images/img_blur01.jpg')">
+		<section id="a" class="section fixed main" style="background-image: url('../images/img_blur01.jpg')">
 			<h2 class="fix_tit"> 
 				<div style="margin-bottom: 10px;">안녕하세요</div>
 				<div style="margin-bottom: 10px;">계속 나아가는 개발자</div>
@@ -213,6 +213,7 @@
 	var scrollPerecnt;
 	var percent;
 
+	var header = $('.header_wrap');
 	var scrollBody = $('.fix_motion');
 	var titText = scrollBody.find('.intro_txt');
 	var maskLeft = scrollBody.find('.left_mask');
@@ -222,6 +223,12 @@
 	var section = $('.section');
 	var offsetTop = [];
 	var offsetBottom = [];
+
+	var sectionMainVisual = $('.section.fixed.main');
+	var sectionOverlap = $('.sec_list_overlap');
+	var sectionMainTop; 
+	var sectionMainBottom; 
+	var sectionIsMoving = false;
 
 	
 	function setValue() {
@@ -235,6 +242,9 @@
 		sectionOffsetTop = scrollBody.offset().top;
 		scrollRealHeight = (scrollHeight - $(window).height());
 		sectionScrolTop = winScrollTop - sectionOffsetTop;
+
+		sectionMainTop = sectionMainVisual.offset().top; 
+		sectionMainBottom = sectionMainTop + sectionMainVisual.height(); 
 
 		scrollPerecnt =  sectionScrolTop / scrollRealHeight;
 		percent = scrollPerecnt * 100 ;
@@ -260,6 +270,25 @@
 		} else if(winScrollTop >= offsetTop[7] && offsetBottom[7] > winScrollTop) {
 			sectionActive(7);
 		}
+
+		//섹션에 진입했는지 체크
+		if(winScrollTop > sectionMainTop && winScrollTop < sectionMainBottom) { 
+			if(!sectionIsMoving) { 
+				sectionIsMoving = true; 
+				moveStartRender(); 
+			}
+		}
+
+		//새로고침시 체크
+		if( winScrollTop >= sectionMainBottom) {
+			activeCehck(); 
+		}
+	};
+	//새로고침을 할 때 페이지가 아래에서 시작할 경우 액티브돼야 할 요소들을 처리
+	function activeCehck() { 
+		header.addClass('active');
+		sectionMainVisual.addClass('active');
+		sectionOverlap.addClass('active');
 	};
 
 	function motionRender() {
@@ -327,12 +356,12 @@
 	function init() {
 		setValue();
 		checkInSection();
-		changeOverlap();
+		motionRender();
 	};
 
 	$(window).scroll(function() {
 		winScrollTop = $(window).scrollTop();
-		checkInSection();
+		motionRender();
 	});
 
 	$(window).resize(function() {
