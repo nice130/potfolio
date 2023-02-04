@@ -12,14 +12,14 @@
 /* common */
 .wrap {position:relative;}
 .inner {max-width:1100px; height: 100%;  margin: 0 auto;}
-.com_tit01 {font-family: 'NotoB'; font-size:120px; color:#fff; text-align: center;}
+.com_tit01 {font-family: 'NotoB'; font-size:80px; color:#fff; text-align: center;}
 .com_txt01 {max-width:70%; margin:0 auto; font-family: 'NotoR'; font-size:32px; color:#fff; text-align: center;;}
 
 
 /* 헤더 */
-.header_wrap {position: fixed; left:0; top:0; z-index:100; width:100%; height:70px; border-bottom:1px solid rgba(255,255,255,.2); transition: background .5s;}
+.header_wrap {position: fixed; left:0; top:0; z-index:100; width:100%; height:70px; transition: background .5s;}
 .header_wrap .logo {margin-top:15px; padding-left:20px; font-size:24px; color:#fff;}
-.header_wrap.active {background: rgba(255,255,255,.5)}
+.header_wrap.active {}
 .header_wrap.active .logo {color:#222; transition: color .5s;}
 
 /* 첫 고정 글귀 */
@@ -72,8 +72,8 @@
 .section.sec_list_overlap.active .list_overlap .list li:first-child .img_box.last {transition-delay: .6s;}
 .section.sec_list_overlap.active .list_overlap .list li:last-child .img_box{transition-delay: .8s;}
 
-.section.sec_list_overlap .list_overlap .list li .img_box {overflow:hidden; }
-.section.sec_list_overlap .list_overlap .list li .img_box img {transition: transform .5s ease;}
+.section.sec_list_overlap .list_overlap .list li .img_box {overflow:hidden;opacity: .6; }
+.section.sec_list_overlap .list_overlap .list li .img_box img {transition: transform .5s ease; opacity: .6;}
 .section.sec_list_overlap .list_overlap .list li .img_box:hover img {transform:scale(1.2) rotate(-0.01deg); -webkit-transform:scale(1.2) rotate(-0.01deg); -moz-transform:scale(1.2) rotate(-0.01deg); -o-transform:scale(1.2) rotate(-0.01deg); -ms-transform:scale(1.2) rotate(-0.01deg);}
 
 .section.sec_list_overlap .list_overlap .list li:first-child  {left:-10px; top:20px;}
@@ -135,17 +135,17 @@
 					(click element)
 				</p>
 				<ul class="list">
-					<li>
+					<li style="height: 30%;">
 						<figure class="img_box">
-							<img src="../images/img_list02.jpg">
+							<img src="../images/ladder.png">
 						</figure>
 						<figure class="img_box last">
-							<img src="../images/img_list03.jpg">
+							<img src="../images/plan.png">
 						</figure>
 					</li>
 					<li>
 						<figure class="img_box">
-							<img src="../images/img_list01.jpg">
+							<img src="../images/roulette.png">
 						</figure>
 					</li>
 				</ul>
