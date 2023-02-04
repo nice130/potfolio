@@ -20,7 +20,7 @@
 .header_wrap {position: fixed; left:0; top:0; z-index:100; width:100%; height:70px; transition: background .5s;}
 .header_wrap .logo {margin-top:15px; padding-left:20px; font-size:24px; color:#fff;}
 .header_wrap.active {}
-.header_wrap.active .logo {color:#222; transition: color .5s;}
+.header_wrap.active .logo {color:rgb(34, 34, 34); transition: color .5s;}
 
 /* 첫 고정 글귀 */
 .fix_tit {text-align: center; position: fixed; left:50%; top:50%; font-family: 'NotoB'; font-size:40px; line-height: 1; color:#fff; transform:translate(-50%, -50%); -webkit-transform:translate(-50%, -50%); -moz-transform:translate(-50%, -50%); -o-transform:translate(-50%, -50%); -ms-transform:translate(-50%, -50%); opacity: .6;}
@@ -56,9 +56,69 @@
 .fix_motion .sticky_cont .cont_box .ending_txt .tb_row .tb_cell {display: table-cell; vertical-align: middle; text-align: center;}
 .fix_motion .sticky_cont .cont_box .ending_txt .tb_row .tb_cell p {font-size: 80px; color:#000; line-height: 1;}
 
+
+/* 포트폴리오 리스트 */
+.innerList{max-width:1100px; height: 70%;  margin: 0 auto;}
+.tb_row {display: table; width:100%; height: 100%;}
+.tb_row .tb_cell {display: table-cell; vertical-align: middle;}
+
+.sec01 {position:relative; height:1440px; background: #111;}
+.sec01 .nav_list {position: relative; z-index:20;}
+.sec01 .nav_list .list li a {overflow:hidden; position:relative; display:inline-block; font-size:140px; line-height: 1; color:#fff; transition:transform .5s;}
+.sec01 .nav_list .list li a .mask {position:absolute; left:0; top:0; z-index:10; height:100%; background: #fff; animation:text_mask 2s 1 cubic-bezier(0.24, 0.77, 0.32, 0.95) both paused;}
+.sec01 .nav_list .list li a .txt {position:relative; z-index:20; display: block; animation:text_opacity 2s 1s 1 cubic-bezier(0.24, 0.77, 0.32, 0.95) both paused;}
+.sec01.active .nav_list .list li a .mask.active {animation-play-state: running;}
+.sec01.active .nav_list .list li a .txt.active {animation-play-state: running;}
+
+.sec01 .nav_list .list li a .mask2 {position:absolute; left:0; bottom:0; z-index:-1; width:0%; height:40%; background: #e9c400; transition:width .5s cubic-bezier(0.24, 0.77, 0.32, 0.95);}
+.sec01 .nav_list .list li a:hover {transform:translateX(-10px); -webkit-transform:translateX(-10px); -moz-transform:translateX(-10px); -o-transform:translateX(-10px); -ms-transform:translateX(-10px);}
+.sec01 .nav_list .list li a:hover .mask2 {width:100%;}
+.sec01 .nav_list .list li a:hover {text-decoration: none;}
+.sec01 .nav_list .list li a:focus {text-decoration: none;}
+
+.sec01 .bg_rotate {position:absolute; left:50%; top:50%; z-index:10; width:1200px; height:1215px; margin-left:-357px; margin-top:-650px; background-image:url('../images/bg_rotate01.png'); background-repeat: no-repeat; background-size:cover; opacity: .15; animation:rotate_bg 40s infinite linear paused;}
+.sec01.active .bg_rotate {animation-play-state: running;}
+
+@keyframes text_mask {
+	0%{
+		width: 0%;
+		transform:translateX(0%);
+	}
+	50%{
+		width: 100%;
+		transform:translateX(0%);
+	}
+	100%{
+		width: 100%;
+		transform:translateX(101%);
+	}
+}
+
+@keyframes text_opacity {
+	0%{
+		opacity: 0;
+		color:#3535ff;
+		transform:translateX(-50%);
+	}
+	100%{
+		opacity: 1;
+		color:#fff;
+		transform:translateX(0%);
+	}
+}
+
+@keyframes rotate_bg {
+	0%{
+		transform:rotate(0deg);
+	}
+	100%{
+		transform:rotate(360deg);
+	}
+}
+
 /* 포트폴리오 영역 */
 
-.section.sec_list_overlap {overflow: hidden; height: 1000px; padding-top:90px; background-image: url('../images/img_blur01.jpg'); background-size: cover; background-repeat: no-repeat;}
+.section.sec_list_overlap {overflow: hidden; height: 1440px; padding-top:90px; background-color: #111; background-size: cover; background-repeat: no-repeat;}
 .section.sec_list_overlap .list_overlap .com_tit01 {color:#fff;}
 .section.sec_list_overlap .list_overlap .com_txt01 {color:#fff;}
 
@@ -66,11 +126,6 @@
 .section.sec_list_overlap .list_overlap .list:after {clear:both; display:block; content:'';}
 .section.sec_list_overlap .list_overlap .list li {position:relative; float:left; width:50%; box-sizing: border-box;}
 .section.sec_list_overlap .list_overlap .list li .img_box {opacity: 0; transform:translateY(20px); -webkit-transform:translateY(20px); -moz-transform:translateY(20px); -o-transform:translateY(20px); -ms-transform:translateY(20px); transition:opacity .5s, transform .5s;}
-
-.section.sec_list_overlap.active .list_overlap .list li .img_box {opacity: 1; transform:translateY(0px); -webkit-transform:translateY(0px); -moz-transform:translateY(0px); -o-transform:translateY(0px); -ms-transform:translateY(0px);}
-.section.sec_list_overlap.active .list_overlap .list li:first-child .img_box {transition-delay: .3s;}
-.section.sec_list_overlap.active .list_overlap .list li:first-child .img_box.last {transition-delay: .6s;}
-.section.sec_list_overlap.active .list_overlap .list li:last-child .img_box{transition-delay: .8s;}
 
 .section.sec_list_overlap .list_overlap .list li .img_box {overflow:hidden;opacity: .6; }
 .section.sec_list_overlap .list_overlap .list li .img_box img {transition: transform .5s ease; opacity: .6;}
@@ -94,7 +149,7 @@
 			</h2>
 		</section>
 		<section id="b" class="section">
-			<section class="fix_motion"> 
+			<div class="fix_motion"> 
 				<article class="sticky_cont"> 
 					<div class="cont_box ">
 						<div class="intro_txt">
@@ -124,16 +179,52 @@
 						</div>
 					</div>
 				</article>
-			</section>
+			</div>
 		</section>
-		<section id="c" class="section sec_list_overlap">
+		<section id="c" class="section fixed" >
+			<div class="sec01 active">
+				<article class="innerList">
+					<div class="tb_row">
+						<div class="tb_cell">
+							<nav class="nav_list">
+								<h2 class="com_tit01">
+									Potfolio List
+								</h2>
+								<ul class="list">
+									<li>
+										<a href="#d" class="active">
+											<span class="txt">Planning</span>
+											<span class="mask"></span>
+											<span class="mask2"></span>
+										</a>
+									</li>
+									<li>
+										<a href="#c">
+											<span class="txt">Roulette</span>
+											<span class="mask"></span>
+											<span class="mask2"></span>
+										</a>
+									</li>
+									<li>
+										<a href="#c">
+											<span class="txt">LadderGame</span>
+											<span class="mask"></span>
+											<span class="mask2"></span>
+										</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+					<div class="bg_rotate"></div>
+				</article>
+			</div>
+		</section>
+		<section id="d" class="section sec_list_overlap">
 			<article class="list_overlap inner">
 				<h2 class="com_tit01">
-					Potfolio List
+					Planning
 				</h2>
-				<p class="com_txt01">
-					(click element)
-				</p>
 				<ul class="list">
 					<li style="height: 30%;">
 						<figure class="img_box">
@@ -141,11 +232,6 @@
 						</figure>
 						<figure class="img_box last">
 							<img src="../images/plan.png">
-						</figure>
-					</li>
-					<li>
-						<figure class="img_box">
-							<img src="../images/roulette.png">
 						</figure>
 					</li>
 				</ul>
@@ -168,38 +254,19 @@
 			<li>
 				<a href="#b">
 					<i class="fa"></i>
-					<span>Younghoon</span>
+					<span>Younghoon</span> 
 				</a>
 			</li>
 			<li>
 				<a href="#c">
 					<i class="fa"></i>
-					<span>Potfolio</span>
-				</a>
-			</li>
-			 
-			<li>
-				<a href="#e">
-					<i class="fa"></i>
-					<span>1</span>
-				</a>
-			</li>
-			<li>
-				<a href="#f">
-					<i class="fa"></i>
-					<span>2</span>
-				</a>
-			</li>
-			<li>
-				<a href="#g">
-					<i class="fa"></i>
-					<span>3</span>
+					<span>PotfolioList</span>
 				</a>
 			</li>
 			<li>
 				<a href="#h">
 					<i class="fa"></i>
-					<span>Ending</span>
+					<span>End</span>
 				</a>
 			</li>
 		</ul>
@@ -258,6 +325,10 @@
 		} else if(winScrollTop >= offsetTop[1] && offsetBottom[1] > winScrollTop) {
 			sectionActive(1);
 		} else if(winScrollTop >= offsetTop[2] && offsetBottom[2] > winScrollTop) {
+			var maskActive = $('.sec01.active .nav_list .list li a .mask');
+			var txtActive = $('.sec01.active .nav_list .list li a .txt');
+			maskActive.addClass('active');
+			txtActive.addClass('active');
 			sectionActive(2);
 		} else if(winScrollTop >= offsetTop[3] && offsetBottom[3] > winScrollTop) {
 			sectionActive(3);
@@ -279,26 +350,16 @@
 			}
 		}
 
-		//새로고침시 체크
-		if( winScrollTop >= sectionMainBottom) {
-			activeCehck(); 
-		}
 	};
-	//새로고침을 할 때 페이지가 아래에서 시작할 경우 액티브돼야 할 요소들을 처리
+
 	function activeCehck() { 
 		header.addClass('active');
-		sectionMainVisual.addClass('active');
-		sectionOverlap.addClass('active');
 	};
 
 	function moveStartRender() { //섹션 이동 처리 함수
 
 			if(!header.hasClass('active')) {
-
 				header.addClass('active');
-				sectionMainVisual.addClass('active');
-				sectionOverlap.addClass('active');
-
 				$('html').stop(true).animate({
 					scrollTop: sectionMainBottom+1 //IE버그 반복 버그 처리를 위해 1을 추가.
 				},500,function(){
@@ -307,9 +368,6 @@
 
 			} else {
 				header.removeClass('active');
-				sectionMainVisual.removeClass('active');
-				sectionOverlap.removeClass('active');
-
 				$('html').stop(true).animate({
 					scrollTop: sectionMainTop
 				},500,function(){
