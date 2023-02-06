@@ -129,14 +129,17 @@
 .section.sec_list .list_overlap .list {position:relative; margin-top:50px;}
 .section.sec_list .list_overlap .list li { float:left; width:50%; box-sizing: border-box;}
 
-.popup { transform: translate(-50%, -50%); position: absolute; text-align: center; padding: 2em 2em; left:50%; top:50%; font-family: 'NotoB'; 
-	 margin: 2em 0;  color: black; background: #FFF; border: solid 3px #5B8BD0; border-radius: 10px; box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);}
+.popup { transform: translate(-50%, -50%); position: absolute; padding: 2em 2em; left:50%; top:50%; font-family: 'NotoB'; 
+	 margin: 2em 0;  color: black; background: #FFF; border: solid 3px #832727; border-radius: 10px; box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);}
+.popup li { float: left; left:0; margin: 10px;}
 .popupback {position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background-color: rgba(0, 0, 0, 0.3); z-index: 1000; z-index: -1; opacity: 0;}
 .show { opacity: 1; z-index: 1000; transition: all 0.5s;}
-.show .popup {
-        transform: translate(-50%, -50%);
-        transition: all 0.5s;
-      }
+.show .popup { transform: translate(-50%, -50%); transition: all 0.5s;}
+
+.popclose {border: 1px solid ; border-color: #9f2222; font-size: 14px; position: absolute; right: 0; width: 50px; height: 30px; margin-right: 10px;}
+.popclose:active {box-shadow: 10 10 #9f2222; background-color: rgb(245, 245, 235);}
+.popimg {margin: 1%;}
+
 /* 스크롤바 */
 ::-webkit-scrollbar{ width:10px;height:10px; border-radius:50px;}
 ::-webkit-scrollbar-track{background-color:#832727; border-radius:50px;}
@@ -202,14 +205,14 @@
 										</a>
 									</li>
 									<li>
-										<a href="#c" onclick="show('roulette')" class="potfolioList">
+										<a onclick="show('roulette')" class="potfolioList">
 											<span class="txt">Roulette</span>
 											<span class="mask"></span>
 											<span class="mask2"></span>
 										</a>
 									</li>
 									<li>
-										<a href="#c" onclick="show('ladder')" class="potfolioList">
+										<a onclick="show('ladder')" class="potfolioList">
 											<span class="txt">LadderGame</span>
 											<span class="mask"></span>
 											<span class="mask2"></span>
@@ -225,63 +228,77 @@
 			<div class="popupback">
 				<div class="popup">
 					<div id="plan" style="display: none;">
-						<button onclick="close()">닫기</button>
-						<li>개발개요</li>
-						<p>- React 사용 경험 및 숙련도 향상을 위하여 진행함<br>
-							- STUDY 멤버와의 계획을 공유하는 페이지 개발
-						</p>
-						<li>사용언어 및 개발환경</li>
-						<div>JavaScript / React / VisualStudioCode / Window / Git</div>
-						<li>프로젝트 내용</li>
+						<div style="image:url('../images/icon_p.png')"></div>
+						<img src="../images/plan.png" class="popimg">
 						<div>
-							- 팀의 협업을 위한 페이지<br>
-							- PLAN을 세우고 그에 대한 상세내용을 공유하는 공간<br>
+							<li>개발개요
+								<ul>- React 사용 경험 및 숙련도 향상을 위하여 진행함</ul>
+								<ul>- STUDY 멤버와의 계획을 공유하는 페이지 개발</ul>
+							</li>
+							<li>사용언어 및 개발환경
+								<ul>- JavaScript / React </ul>
+								<ul>- VisualStudioCode / Git</ul>
+							</li>
+							<li>프로젝트 내용
+								<ul>- 팀의 협업을 위한 페이지</ul>
+								<ul>- PLAN을 세우고 그에 대한</ul>
+								<ul>- 상세내용을 공유하는 공간</ul>
+							</li>
+							<li>참고자료
+								<div>- Github   <a href="https://github.com/nice130/planning"><img src="../images/git.png" style="width: 20px; height: 20px;"></a></div>
+								<div>- web   <a href="https://nice130.github.io/planning/"><img src="../images/web.png" style="width: 20px; height: 20px;"></a></div>
+							</li>
 						</div>
-						<li>참고자료</li>
-						<div>
-							Github 링크 : https://github.com/nice130/planning  <br>
-							web 링크 : https://nice130.github.io/planning/
-						</div>
+						<button onclick="popClose()" class="popclose">닫기</button>
 					</div>
 
 					<div id="roulette" style="display: none;">
-						<button class="close">닫기</button>
-						<li>개발개요</li>
-						<p>- React 사용 경험 및 숙련도 향상을 위하여 진행함<br>
-							- STUDY 멤버와의 계획을 공유하는 페이지 개발
-						</p>
-						<li>사용언어 및 개발환경</li>
-						<div>JavaScript / React / VisualStudioCode / Window / Git</div>
-						<li>프로젝트 내용</li>
+						<div style="image:url('../images/icon_p.png')"></div>
+						<img src="../images/roulette.png" class="popimg">
 						<div>
-							- 팀의 협업을 위한 페이지<br>
-							- PLAN을 세우고 그에 대한 상세내용을 공유하는 공간<br>
+							<li>개발개요
+								<ul>- 다양한 미니게임을 Web/App에 모으고 싶어 개발</ul>
+							</li>
+							<li>사용언어 및 개발환경
+								<ul>- JavaScript </ul>
+								<ul>- VisualStudioCode / Git</ul>
+							</li>
+							<li>프로젝트 내용
+								<ul>- Reflash없는 부드러운 UI 제작</ul>
+								<ul>- 첫 게임 진행 후 게임 재설정 시</ul>
+								<ul>- 다음 게임 결과 값 맞게 도출</ul>
+							</li>
+							<li>참고자료
+								<div>- Github   <a href="https://github.com/nice130/roulette"><img src="../images/git.png" style="width: 20px; height: 20px;"></a></div>
+								<div>- web   <a href="https://nice130.github.io/roulette/"><img src="../images/web.png" style="width: 20px; height: 20px;"></a></div>
+							</li>
 						</div>
-						<li>참고자료</li>
-						<div>
-							Github 링크 : https://github.com/nice130/planning  <br>
-							web 링크 : https://nice130.github.io/planning/
-						</div>
+						<button onclick="popClose()" class="popclose">닫기</button>
 					</div>
 
 					<div id="radder" style="display: none;">
-						<button class="close">닫기</button>
-						<li>개발개요</li>
-						<p>- React 사용 경험 및 숙련도 향상을 위하여 진행함<br>
-							- STUDY 멤버와의 계획을 공유하는 페이지 개발
-						</p>
-						<li>사용언어 및 개발환경</li>
-						<div>JavaScript / React / VisualStudioCode / Window / Git</div>
-						<li>프로젝트 내용</li>
+						<div style="image:url('../images/icon_p.png')"></div>
+						<img src="../images/plan.png" class="popimg">
 						<div>
-							- 팀의 협업을 위한 페이지<br>
-							- PLAN을 세우고 그에 대한 상세내용을 공유하는 공간<br>
+							<li>개발개요
+								<ul>- React 사용 경험 및 숙련도 향상을 위하여 진행함</ul>
+								<ul>- STUDY 멤버와의 계획을 공유하는 페이지 개발</ul>
+							</li>
+							<li>사용언어 및 개발환경
+								<ul>- JavaScript / React </ul>
+								<ul>- VisualStudioCode / Git</ul>
+							</li>
+							<li>프로젝트 내용
+								<ul>- 팀의 협업을 위한 페이지</ul>
+								<ul>- PLAN을 세우고 그에 대한</ul>
+								<ul>- 상세내용을 공유하는 공간</ul>
+							</li>
+							<li>참고자료
+								<div>- Github   <a href="https://github.com/nice130/planning"><img src="../images/git.png" style="width: 20px; height: 20px;"></a></div>
+								<div>- web   <a href="https://nice130.github.io/planning/"><img src="../images/web.png" style="width: 20px; height: 20px;"></a></div>
+							</li>
 						</div>
-						<li>참고자료</li>
-						<div>
-							Github 링크 : https://github.com/nice130/planning  <br>
-							web 링크 : https://nice130.github.io/planning/
-						</div>
+						<button onclick="popClose()" class="popclose">닫기</button>
 					</div>
 				</div>
 			</div>
@@ -366,8 +383,7 @@
 			popContent[2].style.display='';
 		}
 	}
-	document.querySelector(".close").addEventListener("click", close);
-	function close() {
+	function popClose() {
 		console.log('close');
         document.querySelector(".popupback").className = "popupback";
     }
