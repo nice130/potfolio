@@ -24,6 +24,7 @@
 /* 첫 고정 글귀 */
 .fix_tit {text-align: center; position: fixed; left:50%; top:50%; font-family: 'NotoB'; font-size:40px; line-height: 1; color:#fff; transform:translate(-50%, -50%); -webkit-transform:translate(-50%, -50%); -moz-transform:translate(-50%, -50%); -o-transform:translate(-50%, -50%); -ms-transform:translate(-50%, -50%); opacity: .6;}
 .fix_tit.hide {opacity:0;}
+.fix_reference{position: fixed; right:1%; bottom:1%; font-family: 'NotoB'; font-size:20px; opacity: .6;}
 
 /* 섹션, 네비게이션 */
 .section.fixed {overflow: hidden; height: 1440px; background-size:cover; background-attachment: fixed;}
@@ -136,9 +137,12 @@
 .show { opacity: 1; z-index: 1000; transition: all 0.5s;}
 .show .popup { transform: translate(-50%, -50%); transition: all 0.5s;}
 
-.popclose {border: 1px solid ; border-color: #9f2222; font-size: 14px; position: absolute; right: 0; width: 50px; height: 30px; margin-right: 10px;}
+.popclose {border: 1px solid ; border-color: #9f2222; font-size: 14px; position: absolute; right: 0; bottom: 0; width: 50px; height: 30px; margin-bottom: 10px; margin-right: 10px;}
 .popclose:active {box-shadow: 10 10 #9f2222; background-color: rgb(245, 245, 235);}
 .popimg {margin: 1%;}
+
+/* end */
+.end_content { position: sticky; text-align: center; left:50%; top:50%; font-family: 'NotoB'; font-size:40px; color:#fff;line-height: 1 ;opacity: .6;}
 
 /* 스크롤바 */
 ::-webkit-scrollbar{ width:10px;height:10px; border-radius:50px;}
@@ -157,12 +161,16 @@
 		<section id="a" class="section fixed main" style="background-image: url('../images/img_blur01.jpg')">
 			<h2 class="fix_tit"> 
 				<div style="margin-bottom: 10px;">안녕하세요</div>
-				<div style="margin-bottom: 10px;">사용자가 당연하게</div>
-				<div style="margin-bottom: 10px;">생각하는 것을</div>
-				<div style="margin-bottom: 10px;">당연하게 만드는 개발자</div>
-				<div style="margin-bottom: 10px;">유영훈의</div>
-				<div>포트폴리오 입니다:)</div>
+				<div style="margin-bottom: 10px;">한다면 무조건 하고 이루는</div>
+				<div style="margin-bottom: 10px;">열정넘치는 불꽃남자</div>
+				<div style="margin-bottom: 10px;">개발자 유영훈</div>
+				<div>포트폴리오 입니다</div>
 			</h2>
+			<div class="fix_reference">
+				<div>Reference</div>
+				<div><a href="../Data/potfolio.pdf">유영훈_포트폴리오.pdf</a></div>
+				<div><a href="../Data/careerSkills.pdf">유영훈_경력기술서.pdf</a></div>
+			</div>
 		</section>
 		<section id="b" class="section">
 			<div class="fix_motion"> 
@@ -170,7 +178,7 @@
 					<div class="cont_box ">
 						<div class="intro_txt">
 							<h2>
-								기술스택
+								기술스택 리스트
 							</h2>
 						</div>
 						<div class="left_mask"></div>
@@ -257,7 +265,7 @@
 						<img src="../images/roulette.png" class="popimg">
 						<div>
 							<li>개발개요
-								<ul>- 다양한 미니게임을 Web/App에 모으고 싶어 개발</ul>
+								<ul>- 다양한 미니게임 모음 첫번째</ul>
 							</li>
 							<li>사용언어 및 개발환경
 								<ul>- JavaScript </ul>
@@ -265,8 +273,8 @@
 							</li>
 							<li>프로젝트 내용
 								<ul>- Reflash없는 부드러운 UI 제작</ul>
-								<ul>- 첫 게임 진행 후 게임 재설정 시</ul>
-								<ul>- 다음 게임 결과 값 맞게 도출</ul>
+								<ul>- 결과 핀이 일정하게 멈추지 않고</ul>
+								<ul>- 실제 룰렛처럼 STOP</ul>
 							</li>
 							<li>참고자료
 								<div>- Github   <a href="https://github.com/nice130/roulette"><img src="../images/git.png" style="width: 20px; height: 20px;"></a></div>
@@ -278,24 +286,24 @@
 
 					<div id="radder" style="display: none;">
 						<div style="image:url('../images/icon_p.png')"></div>
-						<img src="../images/plan.png" class="popimg">
+						<img src="../images/ladder.png" class="popimg">
 						<div>
 							<li>개발개요
-								<ul>- React 사용 경험 및 숙련도 향상을 위하여 진행함</ul>
-								<ul>- STUDY 멤버와의 계획을 공유하는 페이지 개발</ul>
+								<ul>- 다양한 미니게임 모음 두번째</ul>
 							</li>
 							<li>사용언어 및 개발환경
-								<ul>- JavaScript / React </ul>
+								<ul>- JavaScript</ul>
 								<ul>- VisualStudioCode / Git</ul>
 							</li>
 							<li>프로젝트 내용
-								<ul>- 팀의 협업을 위한 페이지</ul>
-								<ul>- PLAN을 세우고 그에 대한</ul>
-								<ul>- 상세내용을 공유하는 공간</ul>
+								<ul>- 참가자 수에 맞게 게임 판 생성</ul>
+								<ul>- 자유로운 이음선을 만들 수 있게 제작</ul>
+								<ul>- 결과를 버튼을 누르기 전까지</ul>
+								<ul>- 알 수 없게끔 X로 표시</ul>
 							</li>
 							<li>참고자료
-								<div>- Github   <a href="https://github.com/nice130/planning"><img src="../images/git.png" style="width: 20px; height: 20px;"></a></div>
-								<div>- web   <a href="https://nice130.github.io/planning/"><img src="../images/web.png" style="width: 20px; height: 20px;"></a></div>
+								<div>- Github   <a href="https://github.com/nice130/ladderGame"><img src="../images/git.png" style="width: 20px; height: 20px;"></a></div>
+								<div>- web   <a href="https://nice130.github.io/ladderGame/"><img src="../images/web.png" style="width: 20px; height: 20px;"></a></div>
 							</li>
 						</div>
 						<button onclick="popClose()" class="popclose">닫기</button>
@@ -303,14 +311,15 @@
 				</div>
 			</div>
 		</section>
-		<section id="d" class="section sec_list" style="background-image: url('../images/img_blur01.jpg')">
-			
+		<section id="d" class="section fixed" style="background-image: url('../images/img_blur01.jpg')">
+			<div class="end_content"> 
+				<div style="margin-bottom: 10px;">이상</div>
+				<div style="margin-bottom: 10px;">밝은 성격을 소유하고 있고</div>
+				<div style="margin-bottom: 10px;">잘 경청하며 소통하는 것을 좋아하는</div>
+				<div style="margin-bottom: 10px;">개발자 유영훈의 포트폴리오 였습니다 :)</div>
+				<div style="font-size: 20px;">- 우측밑을 보시면 pdf자료도 있습니다 -</div>
+			</div>
 		</section>
-		<!-- <section id="d" class="section fixed" style="background-image: url('../images/4.jpg')"></section>
-		<section id="e" class="section" style="background-image: url('../images/5.jpg')"></section>
-		<section id="f" class="section" style="background-image: url('../images/6.jpg')"></section>
-		<section id="g" class="section" style="background-image: url('../images/7.jpg')"></section>
-		<section id="h" class="section" style="background-image: url('../images/8.jpg')"></section> -->
 		
 		<ul class="nav_list"> <!-- 네비게이션 -->
 			<li>
@@ -333,7 +342,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="#h">
+				<a href="#d">
 					<i class="fa"></i>
 					<span>End</span>
 				</a>
@@ -384,7 +393,6 @@
 		}
 	}
 	function popClose() {
-		console.log('close');
         document.querySelector(".popupback").className = "popupback";
     }
 	
@@ -428,14 +436,6 @@
 			header.removeClass('active');
 			nav_list.removeClass('active');
 			sectionActive(3);
-		} else if(winScrollTop >= offsetTop[4] && offsetBottom[4] > winScrollTop) {
-			sectionActive(4);
-		} else if(winScrollTop >= offsetTop[5] && offsetBottom[5] > winScrollTop) {
-			sectionActive(5);
-		} else if(winScrollTop >= offsetTop[6] && offsetBottom[6] > winScrollTop) {
-			sectionActive(6);
-		} else if(winScrollTop >= offsetTop[7] && offsetBottom[7] > winScrollTop) {
-			sectionActive(7);
 		}
 
 		//섹션에 진입했는지 체크
@@ -451,17 +451,11 @@
 	function moveStartRender() { //섹션 이동 처리 함수
 
 			if(!header.hasClass('active')) {
-				nav_list.addClass('active');
-				header.addClass('active');
 				$('html').stop(true).animate({
 					scrollTop: sectionMainBottom+1 //IE버그 반복 버그 처리를 위해 1을 추가.
-				},500,function(){
-					sectionIsMoving = false; //섹션이 이동 중인지 체크하는 변수
-				});
+				},500);
 
 			} else {
-				nav_list.removeClass('active');
-				header.removeClass('active');
 				$('html').stop(true).animate({
 					scrollTop: sectionMainTop
 				},500)
