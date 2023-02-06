@@ -202,14 +202,14 @@
 										</a>
 									</li>
 									<li>
-										<a href="#c" onclick="show('plan')" class="potfolioList">
+										<a href="#c" onclick="show('roulette')" class="potfolioList">
 											<span class="txt">Roulette</span>
 											<span class="mask"></span>
 											<span class="mask2"></span>
 										</a>
 									</li>
 									<li>
-										<a href="#c" onclick="show('plan')" class="potfolioList">
+										<a href="#c" onclick="show('ladder')" class="potfolioList">
 											<span class="txt">LadderGame</span>
 											<span class="mask"></span>
 											<span class="mask2"></span>
@@ -224,8 +224,9 @@
 			</div>
 			<div class="popupback">
 				<div class="popup">
-					<button class="close">팝업닫기</button>
-					<li>개발개요</li>
+					<div id="plan" style="display: none;">
+						<button onclick="close()">닫기</button>
+						<li>개발개요</li>
 						<p>- React 사용 경험 및 숙련도 향상을 위하여 진행함<br>
 							- STUDY 멤버와의 계획을 공유하는 페이지 개발
 						</p>
@@ -241,21 +242,52 @@
 							Github 링크 : https://github.com/nice130/planning  <br>
 							web 링크 : https://nice130.github.io/planning/
 						</div>
+					</div>
+
+					<div id="roulette" style="display: none;">
+						<button class="close">닫기</button>
+						<li>개발개요</li>
+						<p>- React 사용 경험 및 숙련도 향상을 위하여 진행함<br>
+							- STUDY 멤버와의 계획을 공유하는 페이지 개발
+						</p>
+						<li>사용언어 및 개발환경</li>
+						<div>JavaScript / React / VisualStudioCode / Window / Git</div>
+						<li>프로젝트 내용</li>
+						<div>
+							- 팀의 협업을 위한 페이지<br>
+							- PLAN을 세우고 그에 대한 상세내용을 공유하는 공간<br>
+						</div>
+						<li>참고자료</li>
+						<div>
+							Github 링크 : https://github.com/nice130/planning  <br>
+							web 링크 : https://nice130.github.io/planning/
+						</div>
+					</div>
+
+					<div id="radder" style="display: none;">
+						<button class="close">닫기</button>
+						<li>개발개요</li>
+						<p>- React 사용 경험 및 숙련도 향상을 위하여 진행함<br>
+							- STUDY 멤버와의 계획을 공유하는 페이지 개발
+						</p>
+						<li>사용언어 및 개발환경</li>
+						<div>JavaScript / React / VisualStudioCode / Window / Git</div>
+						<li>프로젝트 내용</li>
+						<div>
+							- 팀의 협업을 위한 페이지<br>
+							- PLAN을 세우고 그에 대한 상세내용을 공유하는 공간<br>
+						</div>
+						<li>참고자료</li>
+						<div>
+							Github 링크 : https://github.com/nice130/planning  <br>
+							web 링크 : https://nice130.github.io/planning/
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>
 		<section id="d" class="section sec_list" style="background-image: url('../images/img_blur01.jpg')">
-			<article class="list_overlap inner">
-				<h2 class="com_tit01">
-					Planning
-				</h2>
-				<div style=" text-align: center; padding: 2em 2em; margin: 2em 0;  color: black; background: #FFF; border: solid 3px #5B8BD0; border-radius: 10px;">
-					<img src="../images/plan.png">
-				
-					
-				</div>
-				
-			</article>
+			
 		</section>
 		<!-- <section id="d" class="section fixed" style="background-image: url('../images/4.jpg')"></section>
 		<section id="e" class="section" style="background-image: url('../images/5.jpg')"></section>
@@ -319,16 +351,26 @@
 
 	function show(content){
 		document.querySelector(".popupback").className = "popupback show";
-		
-		console.log(document.querySelector("."+content).className);
+		var popContent = document.querySelector(".popup").children;
+		if(content=="plan"){
+			popContent[0].style.display='';
+			popContent[1].style.display='none';
+			popContent[2].style.display='none';
+		}else if(content=="roulette"){
+			popContent[0].style.display='none';
+			popContent[1].style.display='';
+			popContent[2].style.display='none';
+		}else if(content=="ladder"){
+			popContent[0].style.display='none';
+			popContent[1].style.display='none';
+			popContent[2].style.display='';
+		}
 	}
-
+	document.querySelector(".close").addEventListener("click", close);
 	function close() {
+		console.log('close');
         document.querySelector(".popupback").className = "popupback";
     }
-
-    document.querySelector(".potfolioList").addEventListener("click", show);
-    document.querySelector(".close").addEventListener("click", close);
 	
 	function setValue() {
 		winScrollTop = $(window).scrollTop();
@@ -353,8 +395,12 @@
 		setValue();
 		motionRender();
 		if(winScrollTop >= offsetTop[0] && offsetBottom[0] > winScrollTop) {
+			header.removeClass('active');
+			nav_list.removeClass('active');
 			sectionActive(0);
 		} else if(winScrollTop >= offsetTop[1] && offsetBottom[1] > winScrollTop) {
+			header.addClass('active');
+			nav_list.addClass('active');
 			sectionActive(1);
 		} else if(winScrollTop >= offsetTop[2] && offsetBottom[2] > winScrollTop) {
 			var maskActive = $('.sec01.active .snav_list .list li a .mask');
@@ -385,11 +431,6 @@
 		}
 
 	};
-
-	// function activeCehck() { 
-	// 	header.addClass('active');
-	// 	nav_list.addClass('active');
-	// };
 
 	function moveStartRender() { //섹션 이동 처리 함수
 
