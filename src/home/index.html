@@ -53,7 +53,6 @@
 .fix_motion .sticky_cont .cont_box .intro_txt.active {opacity: 0;}
 .fix_motion .sticky_cont .cont_box .left_mask {position: absolute; left:0; top:0; z-index:50; width:50%; height: 100%; background: #000; }
 .fix_motion .sticky_cont .cont_box .right_mask {position: absolute; right:0; top:0; z-index:50; width:50%; height: 100%; background: #000; }
-.fix_motion .sticky_cont .cont_box .bg_img {left:0; top:0; z-index:20; width: 100%; height: 100%;}
 .fix_motion .sticky_cont .cont_box .ending_txt {position: absolute; left:0; top:0; z-index:30; width: 100%; height: 100%; opacity:0; transition:opacity 1s;}
 .fix_motion .sticky_cont .cont_box .ending_txt:after {position: absolute; left:0; top:0; z-index:-1; width: 100%; height: 100%; background: rgba(255,255,255,1); content:"";}
 .fix_motion .sticky_cont .cont_box .ending_txt.active {opacity: 1;}
@@ -69,7 +68,7 @@
 
 .sec01 {position:relative; height:110vh; background: #111; text-align: center;}
 .sec01 .snav_list {position: relative; z-index:20;}
-.sec01 .snav_list .list li a {overflow:hidden; position:relative; display:inline-block; font-size:3em; line-height: 1; color:#fff; transition:transform .5s;}
+.sec01 .snav_list .list li a {overflow:hidden; position:relative; display:inline-block; font-size:3em; line-height: 2; color:#fff; transition:transform .5s;}
 .sec01 .snav_list .list li a .mask {position:absolute; left:0; top:0; z-index:10; height:100%; background: #fff; animation:text_mask 2s 1 cubic-bezier(0.24, 0.77, 0.32, 0.95) both paused;}
 .sec01 .snav_list .list li a .txt {position:relative; z-index:20; display: block; animation:text_opacity 2s 1s 1 cubic-bezier(0.24, 0.77, 0.32, 0.95) both paused;}
 .sec01.active .snav_list .list li a .mask.active {animation-play-state: running;}
@@ -81,7 +80,7 @@
 .sec01 .snav_list .list li a:hover {text-decoration: none;}
 .sec01 .snav_list .list li a:focus {text-decoration: none;}
 
-.sec01 .bg_rotate {position:absolute; left:50%; top:50%; z-index:10; width:1200px; height:1215px; margin-left:-357px; margin-top:-650px; background-image:url('../images/bg_rotate01.png'); background-repeat: no-repeat; background-size:cover; opacity: .15; animation:rotate_bg 40s infinite linear paused;}
+.sec01 .bg_rotate { position:absolute; left:50%; top:50%; z-index:10; width:75em; height:76em; margin-left:-22.315em; margin-top:-40.625em; background-image:url('../images/bg_rotate01.png'); background-repeat: no-repeat; background-size:cover; opacity: .15; animation:rotate_bg 40s infinite linear paused;}
 .sec01.active .bg_rotate {animation-play-state: running;}
 
 @keyframes text_mask {
@@ -122,14 +121,6 @@
 }
 
 /* 포트폴리오 영역 */
-
-.section.sec_list {overflow: hidden; height: 1440px; padding-top:90px; background-color: #111; background-size: cover; background-repeat: no-repeat;}
-.section.sec_list .list_overlap .com_tit01 {color:#fff;}
-.section.sec_list .list_overlap .com_txt01 {color:#fff;}
-
-.section.sec_list .list_overlap .list {position:relative; margin-top:50px;}
-.section.sec_list .list_overlap .list li { float:left; width:50%; box-sizing: border-box;}
-
 .popup { transform: translate(-50%, -50%); position: absolute; padding: 2em 2em; left:50%; top:50%; font-family: 'NotoB'; font-size: 0.7em;
 	 margin: 2em 0;  color: black; background: #FFF; border: solid 3px #832727; border-radius: 10px; box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);}
 .popup li { float: left; left:0; margin: 10px;}
@@ -183,7 +174,6 @@
 						</div>
 						<div class="left_mask"></div>
 						<div class="right_mask"></div>
-						<!-- <figure class="bg_img"></figure> -->
 						<div class="ending_txt">
 							<div class="tb_row">
 								<div class="tb_cell">
@@ -317,7 +307,7 @@
 				<div style="margin-bottom: 10px;">밝은 성격을 소유하고 있고</div>
 				<div style="margin-bottom: 10px;">잘 경청하며 소통하는 것을 좋아하는</div>
 				<div style="margin-bottom: 10px;">개발자 유영훈의 포트폴리오 였습니다 :)</div>
-				<div style="font-size: 0.5em;">- 우측밑을 보시면 pdf자료도 있습니다 -</div>
+				<div style="font-size: 0.5em;">- 우측밑을 보시면 pdf자료를 보실 수 있습니다 -</div>
 			</div>
 		</section>
 		
@@ -365,7 +355,6 @@
 	var titText = scrollBody.find('.intro_txt');
 	var maskLeft = scrollBody.find('.left_mask');
 	var maskRight = scrollBody.find('.right_mask');
-	var bg_img = scrollBody.find('.bg_img');
 	var endingContent = scrollBody.find('.ending_txt');
 	var section = $('.section');
 	var offsetTop = [];
@@ -482,11 +471,6 @@
 		maskRight
 		.css({
 			width: maskVal+5 + '%'
-		});
-
-		bg_img
-		.css({
-			'transform': 'scale('+ scaleVal +')'
 		});
 
 		if(percent>0) {
