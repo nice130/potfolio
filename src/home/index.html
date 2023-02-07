@@ -10,7 +10,7 @@
 </head>
 <style type="text/css">
 /* common */
-.wrap {position:relative; font-size: 20px;}
+.wrap {position:relative;}
 .inner {max-width:1100px; height: 100%;  margin: 0 auto;}
 .com_tit01 {font-family: 'NotoB'; font-size:4em; color:#b0acf1; text-align: center;}
 .com_txt01 {max-width:70%; margin:0 auto; font-family: 'NotoR'; font-size:3em; color:#fff; text-align: center;;}
@@ -154,7 +154,7 @@
 
 </style>
 <body>
-	<div class="wrap">
+	<div class="wrap" id="wrap">
 		<header class="header_wrap">
 			<div class="logo">Younghoon</div>
 		</header>
@@ -357,6 +357,7 @@
 	var scrollRealHeight;
 	var scrollPerecnt;
 	var percent;
+	var winWidth;
 
 	var nav_list = $('.nav_list');
 	var header = $('.header_wrap');
@@ -410,9 +411,10 @@
 
 		sectionMainTop = sectionMainVisual.offset().top; 
 		sectionMainBottom = sectionMainTop + sectionMainVisual.height(); 
-
+		
 		scrollPerecnt =  sectionScrolTop / scrollRealHeight;
 		percent = scrollPerecnt * 100 ;
+		
 	};
 
 	function checkInSection() {
@@ -519,7 +521,6 @@
 	};
 
 	function listActive(index) {
-
 		var list = $('.nav_list li a');
 			list.removeClass('active');
 			list.eq(index).addClass('active');
@@ -537,9 +538,10 @@
 	});
 
 	$(window).resize(function() {
-		
 		setValue();
 		checkInSection();
+		winWidth = $(window).width();
+		document.getElementById("wrap").style.fontSize=winWidth/70+'px'
 	});
 
 	$('.nav_list li a').click(function(e) {
