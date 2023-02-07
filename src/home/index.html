@@ -399,6 +399,7 @@
 	
 	function setValue() {
 		winScrollTop = $(window).scrollTop();
+		winWidth = $(window).width();
 		section.each(function(index,obj) {
 			offsetTop[index] = $(obj).offset().top;
 			offsetBottom[index] = offsetTop[index] + $(obj).height();
@@ -414,7 +415,7 @@
 		
 		scrollPerecnt =  sectionScrolTop / scrollRealHeight;
 		percent = scrollPerecnt * 100 ;
-		
+		document.getElementById("wrap").style.fontSize=winWidth/70+'px'
 	};
 
 	function checkInSection() {
@@ -541,7 +542,6 @@
 		setValue();
 		checkInSection();
 		winWidth = $(window).width();
-		document.getElementById("wrap").style.fontSize=winWidth/70+'px'
 	});
 
 	$('.nav_list li a').click(function(e) {
